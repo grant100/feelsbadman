@@ -14,7 +14,7 @@ void C2::cleanup() {
 	InternetCloseHandle(this->requestHandle);
 }
 
-void C2::connect() {
+void C2::execute() {
 
 	this->error = InternetAttemptConnect(0);
 	if (error != ERROR_SUCCESS) {

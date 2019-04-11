@@ -23,6 +23,6 @@ class C2 {
 public:
 	DWORD error = NULL;
 	C2(LPCSTR hostName, LPCSTR pathName) :hostName(hostName), pathName(pathName) {};
-	void connect();
+	void execute();
 	void cleanup();
 };

