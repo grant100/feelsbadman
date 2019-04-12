@@ -1,7 +1,9 @@
 #pragma once
 
 class PM {
+
 public:
-	void getProcesses();
+	bool getProcesses();
+	//void hasProcesses();
 };
 
