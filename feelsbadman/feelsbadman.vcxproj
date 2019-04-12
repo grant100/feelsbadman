@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClInclude Include="C2.h" />
     <ClInclude Include="CP.h" />
+    <ClInclude Include="DB.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PH.h" />
     <ClInclude Include="RM.h" />
@@ -167,6 +168,7 @@
   <ItemGroup>
     <ClCompile Include="C2.cpp" />
     <ClCompile Include="CP.cpp" />
+    <ClCompile Include="DB.cpp" />
     <ClCompile Include="feelsbadman.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
