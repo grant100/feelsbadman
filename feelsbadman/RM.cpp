@@ -4,6 +4,12 @@
 #include <strsafe.h>
 
 void RM::execute(){
+	
+	// don't delete if executing from AppData
+	if (this->util.isInAppData()) {
+		return;
+	}
+
 	char* filename = this->util.getFileName();
 	StringCbPrintf(this->command, 2 * MAX_PATH, REMOVE_COMAND, filename);
 	CreateProcess(NULL, this->command, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &this->info, &this->processInfo);

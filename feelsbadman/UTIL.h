@@ -3,6 +3,11 @@ using namespace std;
 #include <string>
 #include <windows.h>
 
+/*
+	Utility Module
+	Responsible for maintaining and building the various directory paths for self deletion and copy 
+*/
+
 class UTIL {
 	string path;
 	string username;
@@ -24,4 +29,5 @@ public:
 	string getUsername();
 	string getAppDataPath();
 	string getCurrentDirectory();
+	bool isInAppData();
 };

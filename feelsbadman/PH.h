@@ -2,6 +2,10 @@ using namespace std;
 #pragma once
 #include<string>
 
+/**
+	Process Hacking module
+	Responsible for detecting running processes
+**/
 class PH {
 	string x64dbg = "x64dbg.exe";
 	string x32dbg = "x32dbg.exe";
@@ -14,7 +18,5 @@ class PH {
 	bool isida64 = false;
 
 public:
-	//PH();
 	void hasProcesses();
-	//void hasProcesses();
 };

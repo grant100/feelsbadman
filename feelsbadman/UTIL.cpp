@@ -10,7 +10,6 @@ string UTIL::getCurrentDirectory() {
 	GetCurrentDirectory(bLength, buffer);
 	this->currentDirectory = buffer;
 	return this->currentDirectory;
-
 }
 
 string UTIL::getUsername() {
@@ -37,7 +36,7 @@ string UTIL::getPath() {
 	return this->path;
 }
 char* UTIL::getFileName() {
-	getModuleName();
+	this->getModuleName();
 	return this->filename;
 }
 
@@ -47,4 +46,10 @@ string UTIL::getAppDataPath() {
 
 void UTIL::getModuleName() {
 	GetModuleFileNameA(NULL, this->filename, MAX_PATH);
+}
+
+bool UTIL::isInAppData() {
+	string path = this->getAppDataPath();
+	string dire = this->getCurrentDirectory();
+	return path == dire;
 }
