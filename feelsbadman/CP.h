@@ -6,11 +6,6 @@ using namespace std;
 #include <Lmcons.h>
 
 class CP {
-	string path;
-	string base = "C:\\Users\\";
-	string appData = "\\AppData";
-	string clone = "\\clone.exe";
-
 	UTIL util;
 
 public:

