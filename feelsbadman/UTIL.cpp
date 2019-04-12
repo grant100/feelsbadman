@@ -26,6 +26,14 @@ string UTIL::getClone() {
 	return this->clone;
 }
 
+string UTIL::getDownloaded() {
+	return this->downloaded;
+}
+
+string UTIL::getDownloadFileName() {
+	return this->downloadFileName;
+}
+
 string UTIL::getAppData() {
 	return this->appData;
 }
@@ -50,8 +58,8 @@ void UTIL::getModuleName() {
 	GetModuleFileNameA(NULL, this->filename, MAX_PATH);
 }
 
-void UTIL::getModuleNameB() {
-	GetModuleFileNameA(NULL, this->filename, MAX_PATH);
+LPCSTR UTIL::getC2Host() {
+	return this->c2host;
 }
 
 bool UTIL::isExecutingFromAppData() {
@@ -61,13 +69,6 @@ bool UTIL::isExecutingFromAppData() {
 
 	std::transform(path.begin(), path.end(), path.begin(),::tolower);
 	std::transform(dire.begin(), dire.end(), dire.begin(), ::tolower);
-	bool same = path == dire;
-	if (same) {
-		printf("%s Directory: %s \nPath: %s \n", "TRUE", dire.c_str(), path.c_str());
-	}
-	else {
-		printf("%s Directory: %s \nPath: %s \n", "FALSE", dire.c_str(), path.c_str());
-	}
-	
+
 	return path == dire;
 }

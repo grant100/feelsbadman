@@ -7,6 +7,8 @@ using namespace std;
 	Responsible for detecting running processes
 **/
 class PH {
+
+public:
 	string x64dbg = "x64dbg.exe";
 	string x32dbg = "x32dbg.exe";
 	string Proc32 = "Procmon.exe";
@@ -16,7 +18,6 @@ class PH {
 	bool isx32dbg = false;
 	bool isProc32 = false;
 	bool isida64 = false;
-
-public:
-	void hasProcesses();
+	bool isDetected();
+	void detectProcesses();
 };

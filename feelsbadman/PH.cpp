@@ -4,7 +4,7 @@
 #include <Windows.h>
 #include <tlhelp32.h>
 
-void PH::hasProcesses() {
+void PH::detectProcesses() {
 
 	string compare;
 	bool procRunning = false;
@@ -35,4 +35,8 @@ void PH::hasProcesses() {
 
 		CloseHandle(hProcessSnap);
 	}
+}
+
+bool PH::isDetected() {
+	return this->isProc32 || this->isida64 || this->isx32dbg || this->isx64dbg;
 }
