@@ -7,6 +7,11 @@ using namespace std;
 #include <wininet.h>
 #include "UTIL.h"
 
+/*
+	Command Module:
+	Responsible for C2 functionality
+*/
+
 class C2 {
 	string response;
 

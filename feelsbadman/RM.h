@@ -2,8 +2,8 @@
 #include "UTIL.h"
 
 /**
-	Module for self deletion
-	Opens new process that waits 3 seconds and then deletes the executable
+	Deletion Module:
+	Responsible for opening new process that waits 3 seconds and then deletes the executable
 **/
 
 #define REMOVE_COMAND TEXT("cmd.exe /C ping localhost -n 1 -w 3000 > nul & del /f /q \"%s\"")

@@ -1,10 +1,10 @@
-using namespace std;
+
 #pragma once
 #include <string>
 #include <windows.h>
-
+using namespace std;
 /*
-	Utility Module
+	Utility Module:
 	Responsible for maintaining and building the various directory paths for self deletion and copy 
 */
 
@@ -17,7 +17,7 @@ class UTIL {
 
 	char filename[MAX_PATH];
 	void getModuleName();
-
+	void getModuleNameB();
 	string currentDirectory;
 
 public:
@@ -29,5 +29,5 @@ public:
 	string getUsername();
 	string getAppDataPath();
 	string getCurrentDirectory();
-	bool isInAppData();
+	bool isExecutingFromAppData();
 };

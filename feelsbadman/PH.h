@@ -3,7 +3,7 @@ using namespace std;
 #include<string>
 
 /**
-	Process Hacking module
+	Process Hacking module:
 	Responsible for detecting running processes
 **/
 class PH {

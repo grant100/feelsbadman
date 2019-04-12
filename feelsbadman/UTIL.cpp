@@ -1,8 +1,10 @@
+
+
 #include "pch.h"
 #include "UTIL.h"
 #include <windows.h>
 #include <Lmcons.h>
-
+#include<algorithm>
 
 string UTIL::getCurrentDirectory() {
 	TCHAR buffer[MAX_PATH * 2];
@@ -41,15 +43,31 @@ char* UTIL::getFileName() {
 }
 
 string UTIL::getAppDataPath() {
-	return getBase() + getUsername() + getAppData();
+	return this->getBase() + this->getUsername() + this->getAppData();
 }
 
 void UTIL::getModuleName() {
 	GetModuleFileNameA(NULL, this->filename, MAX_PATH);
 }
 
-bool UTIL::isInAppData() {
-	string path = this->getAppDataPath();
-	string dire = this->getCurrentDirectory();
+void UTIL::getModuleNameB() {
+	GetModuleFileNameA(NULL, this->filename, MAX_PATH);
+}
+
+bool UTIL::isExecutingFromAppData() {
+	this->getModuleName();
+	string path = this->getAppDataPath() + this->getClone();
+	string dire = this->filename;
+
+	std::transform(path.begin(), path.end(), path.begin(),::tolower);
+	std::transform(dire.begin(), dire.end(), dire.begin(), ::tolower);
+	bool same = path == dire;
+	if (same) {
+		printf("%s Directory: %s \nPath: %s \n", "TRUE", dire.c_str(), path.c_str());
+	}
+	else {
+		printf("%s Directory: %s \nPath: %s \n", "FALSE", dire.c_str(), path.c_str());
+	}
+	
 	return path == dire;
 }
