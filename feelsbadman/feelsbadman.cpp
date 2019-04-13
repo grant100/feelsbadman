@@ -28,10 +28,6 @@ int main()
 
 	//TODO check if downloaded.exe exists before retrieving
 	//TODO modify registry keys
-
-	connModule.setPathName("/");
-	connModule.setHostName("www.google.com");
-
 	while (true) {
 		// do bad stuff
 		debgModule.execute();
