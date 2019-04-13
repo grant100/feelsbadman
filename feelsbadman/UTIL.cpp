@@ -26,6 +26,10 @@ string UTIL::getClone() {
 	return this->clone;
 }
 
+string UTIL::getCloneKeyName() {
+	return this->cloneKeyName;
+}
+
 string UTIL::getDownloaded() {
 	return this->downloaded;
 }
@@ -60,6 +64,10 @@ void UTIL::getModuleName() {
 
 LPCSTR UTIL::getC2Host() {
 	return this->c2host;
+}
+
+LPCSTR UTIL::getRunKey() {
+	return this->runKey;
 }
 
 bool UTIL::isExecutingFromAppData() {

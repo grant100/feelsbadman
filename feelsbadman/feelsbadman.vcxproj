@@ -162,6 +162,7 @@
     <ClInclude Include="DB.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PH.h" />
+    <ClInclude Include="RG.h" />
     <ClInclude Include="RM.h" />
     <ClInclude Include="UTIL.h" />
   </ItemGroup>
@@ -177,6 +178,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PH.cpp" />
+    <ClCompile Include="RG.cpp" />
     <ClCompile Include="RM.cpp" />
     <ClCompile Include="UTIL.cpp" />
   </ItemGroup>
