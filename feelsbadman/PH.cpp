@@ -31,6 +31,10 @@ void PH::detectProcesses() {
 			if (pe32.szExeFile == this->ida64) {
 				isida64 = true;
 			}
+
+			if (pe32.szExeFile == this->util.getDownloadFileName()) {
+				isDlexe = true;
+			}
 		}
 
 		CloseHandle(hProcessSnap);
@@ -39,4 +43,8 @@ void PH::detectProcesses() {
 
 bool PH::isDetected() {
 	return this->isProc32 || this->isida64 || this->isx32dbg || this->isx64dbg;
+}
+
+bool PH::isDownloadedDetected() {
+	return this->isDlexe;
 }

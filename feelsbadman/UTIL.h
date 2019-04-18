@@ -23,6 +23,17 @@ class UTIL {
 	void getModuleName();
 	string currentDirectory;
 
+	// Must have 10 strings at least
+	string one = "I don't always code, but when I do it's bad";
+	string two = "You'll never catch me";
+	string three = "Good luck reversing this code loooool";
+	string four = "I'll take, what is security, for 600 Alex";
+	string five = "l337";
+	string six = "SecretApi()";
+	string seven = "Graduating 2019 ftw!";
+	string eight = "What do you call a fake noodle? An impasta!";
+	string nine = "What do you call cheese that isn't yours? Nacho cheese.";
+	string ten = "1 cup mozarella 1, cup cheddar jack, apply jalapeno jelly to liking, butter both sides of bread, and grill to perfection.";
 public:
 	char* getFileName();
 	string getPath();

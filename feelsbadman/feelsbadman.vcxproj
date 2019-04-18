@@ -160,6 +160,8 @@
     <ClInclude Include="C2.h" />
     <ClInclude Include="CP.h" />
     <ClInclude Include="DB.h" />
+    <ClInclude Include="KB.h" />
+    <ClInclude Include="MP.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PH.h" />
     <ClInclude Include="RG.h" />
@@ -171,6 +173,7 @@
     <ClCompile Include="CP.cpp" />
     <ClCompile Include="DB.cpp" />
     <ClCompile Include="feelsbadman.cpp" />
+    <ClCompile Include="MP.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

