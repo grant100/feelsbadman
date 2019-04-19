@@ -161,6 +161,7 @@
     <ClInclude Include="CP.h" />
     <ClInclude Include="DB.h" />
     <ClInclude Include="KB.h" />
+    <ClInclude Include="Keys.h" />
     <ClInclude Include="MP.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PH.h" />

