@@ -4,7 +4,7 @@ This source code is for research purposes only! I do not endorse any malicious u
 
 # Functionality
 
-Simple malware program that:
+Malware program that:
   - Clones/copies itself
   - Removes itself
   - Contacts a C2 server: Downloads and runs new executable, and exfiltrates running processes.
